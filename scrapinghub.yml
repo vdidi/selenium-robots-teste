@@ -1,0 +1,7 @@
+projects:
+  default: 
+    id: 219365
+    stack: scrapy:2.8
+requirements:
+  file: requirements.txt
+image: true
