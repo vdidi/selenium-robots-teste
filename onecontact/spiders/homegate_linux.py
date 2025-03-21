@@ -18,6 +18,7 @@ from twisted.internet.error import TimeoutError, TCPTimedOutError
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from scrapy.selector import Selector
 from fake_useragent import UserAgent
 
@@ -140,8 +141,7 @@ def setup_selenium():
 	chrome_options.add_experimental_option('useAutomationExtension', False)
         
 	# Initialize the WebDriver
-	service = Service(executable_path="/usr/local/bin/chromedriver")
-	driver = webdriver.Chrome(options=chrome_options, service=service)
+	driver = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
 	return driver
 
 class HomegateSpider(scrapy.Spider):
