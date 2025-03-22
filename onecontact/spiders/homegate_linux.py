@@ -141,7 +141,7 @@ def setup_selenium():
 	chrome_options.add_experimental_option('useAutomationExtension', False)
         
 	# Initialize the WebDriver
-	driver = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
+	driver = webdriver.Chrome(options=chrome_options, service=Service(executable_path="/usr/local/bin/chromedriver"))
 	return driver
 
 class HomegateSpider(scrapy.Spider):
